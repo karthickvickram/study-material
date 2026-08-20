@@ -79,14 +79,32 @@
             page-break-inside: avoid;
         }
         .pair-block {
+            position: relative;
             max-width: 900px;
             margin: 0 auto 20px auto;
-            padding: 15px;
+            padding: 15px 15px 15px 44px;
             background-color: #ffffff;
             border: 1px solid #d5dbdb;
             border-radius: 6px;
             page-break-inside: avoid;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .pair-number {
+            position: absolute;
+            top: 15px;
+            left: 12px;
+            min-width: 22px;
+            padding: 2px 6px;
+            background-color: #2c3e50;
+            color: #ffffff;
+            font-size: 9.5pt;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 10px;
+        }
+        .pair-count {
+            font-weight: bold;
+            color: #2c3e50;
         }
         .pair-row {
             display: flex;
@@ -162,6 +180,7 @@
 
     <div class="intro-note">
         <span class="label">குறிப்பு:</span> கீழே கொடுக்கப்பட்டுள்ள சொற்கள் கேட்பதற்கு ஒரே மாதிரி இருந்தாலும், ண்/ன் போன்ற எழுத்து வேறுபாட்டால் பொருள் முற்றிலும் மாறுபடும். இவ்வேறுபாட்டை கவனத்தில் கொண்டு பயிற்சி செய்யவும்.
+        <br>மொத்தம் <span class="pair-count" id="pair-count">0</span> சொல் ஜோடிகள்.
     </div>
 
     <div id="pairs-container"></div>
@@ -187,6 +206,216 @@
                 b: { word: "அனைய", meaning: "அத்தகைய" },
                 sentence: '<span class="hl-b">அனைய</span> (அத்தகைய) நல்ல மனிதர்களின் உதவியால் இலக்கை <span class="hl-a">அணைய</span> முடியும்.'
             },
+            {
+                a: { word: "அண்மை", meaning: "அருகில்" },
+                b: { word: "அன்மை", meaning: "தீமை, அல்ல" },
+                sentence: 'என் வீட்டிற்கு <span class="hl-a">அண்மையில்</span> இருக்கும் அந்த மனிதனுடைய <span class="hl-b">அன்மையான</span> (தீய) செயல்களால் அனைவரும் திடுக்கிட்டனர்.'
+            },
+            {
+                a: { word: "அங்கண்", meaning: "அவ்விடம்" },
+                b: { word: "அங்கன்", meaning: "மகன்" },
+                sentence: '<span class="hl-a">அங்கண்</span> நடந்த விழாவிற்குத் தலைவரின் <span class="hl-b">அங்கன்</span> (மகன்) வந்திருந்தான்.'
+            },
+            {
+                a: { word: "அண்ணம்", meaning: "மேல்வாய்" },
+                b: { word: "அன்னம்", meaning: "சோறு, அன்னப்பறவை" },
+                sentence: 'அவனுடைய <span class="hl-a">அண்ணத்தில்</span> (மேல்வாயில்) புண் ஏற்பட்டதால் <span class="hl-b">அன்னம்</span> (சோறு) உண்ண முடியவில்லை.'
+            },
+            {
+                a: { word: "அண்ணன்", meaning: "தமையன்" },
+                b: { word: "அன்னன்", meaning: "அத்தகையவன்" },
+                sentence: 'என் <span class="hl-a">அண்ணன்</span> (தமையன்) <span class="hl-b">அன்னன்</span> (அத்தகையவன்) என்று அனைவராலும் புகழப்படுபவன்.'
+            },
+            {
+                a: { word: "அவண்", meaning: "அவ்வாறு" },
+                b: { word: "அவன்", meaning: "சேய்மைச் சுட்டு, ஆண்மகன்" },
+                sentence: '<span class="hl-a">அவண்</span> (அவ்வாறு) நடந்துகொண்ட <span class="hl-b">அவன்</span> (ஆண்மகன்) அனைவராலும் விமர்சிக்கப்பட்டான்.'
+            },
+            {
+                a: { word: "ஆணகம்", meaning: "சுரை" },
+                b: { word: "ஆளகம்", meaning: "துந்துபி" },
+                sentence: 'திருவிழாவில் <span class="hl-a">ஆணகம்</span> (சுரை) இசைக்கப்பட்டதைத் தொடர்ந்து <span class="hl-b">ஆளகம்</span> (துந்துபி) முழங்கியது.'
+            },
+            {
+                a: { word: "ஆணம்", meaning: "பற்றுக்கோடு" },
+                b: { word: "ஆனம்", meaning: "தெப்பம், கள்" },
+                sentence: 'ஆற்றைக் கடக்க அவன் பயன்படுத்திய <span class="hl-b">ஆனம்</span> (தெப்பம்) அவனுக்கு உயிர் <span class="hl-a">ஆணமாக</span> (பற்றுக்கோடாக) அமைந்தது.'
+            },
+            {
+                a: { word: "ஆணி", meaning: "எழுத்தாணி, இரும்பாணி" },
+                b: { word: "ஆனி", meaning: "தமிழ் மாதங்களுள் ஒன்று" },
+                sentence: '<span class="hl-b">ஆனி</span> மாதத்தில் வீட்டைக் கட்ட அவன் <span class="hl-a">ஆணியை</span> (இரும்பாணியை) அடித்தான்.'
+            },
+            {
+                a: { word: "ஆணேறு", meaning: "ஆண்மகன்" },
+                b: { word: "ஆனேறு", meaning: "காளை, எருது" },
+                sentence: 'ஊர் மக்களைக் காக்கும் <span class="hl-a">ஆணேறு</span> (ஆண்மகன்) போல், அந்த <span class="hl-b">ஆனேறு</span> (காளை) வயலில் உழுதுகொண்டிருந்தது.'
+            },
+            {
+                a: { word: "ஆண்", meaning: "ஆடவன்" },
+                b: { word: "ஆன்", meaning: "பசு" },
+                sentence: 'அந்த <span class="hl-a">ஆண்</span> (ஆடவன்) தன் வீட்டில் வளர்த்த <span class="hl-b">ஆனை</span> (பசுவை) அன்புடன் பராமரித்தான்.'
+            },
+            {
+                a: { word: "ஆணை", meaning: "கட்டளை, ஆட்சி" },
+                b: { word: "ஆனை", meaning: "யானை" },
+                sentence: 'அரசனின் <span class="hl-a">ஆணைப்படி</span> (கட்டளைப்படி), காட்டு <span class="hl-b">ஆனை</span> (யானை) பிடிக்கப்பட்டது.'
+            },
+            {
+                a: { word: "இணை", meaning: "துணை, இரட்டை" },
+                b: { word: "இனை", meaning: "இன்ன, வருத்தம்" },
+                sentence: 'நண்பர்கள் <span class="hl-a">இணைந்து</span> (சேர்ந்து) செயல்பட்டதால், அவர்களுக்கு எந்த <span class="hl-b">இனையும்</span> (வருத்தமும்) ஏற்படவில்லை.'
+            },
+            {
+                a: { word: "இணைத்து", meaning: "சேர்த்து" },
+                b: { word: "இனைத்து", meaning: "இத்தன்மையது" },
+                sentence: 'இரு கயிறுகளை <span class="hl-a">இணைத்துக்</span> (சேர்த்துக்) கட்டியதால், <span class="hl-b">இனைத்து</span> (இத்தன்மையது) ஒரு வலிமையான கயிறு உருவானது.'
+            },
+            {
+                a: { word: "இவண்", meaning: "இவ்வாறு" },
+                b: { word: "இவன்", meaning: "ஆடவன் (அண்மைச் சுட்டு)" },
+                sentence: '<span class="hl-a">இவண்</span> (இவ்வாறு) பேசிய <span class="hl-b">இவன்</span> (இந்த ஆடவன்) அனைவரையும் வியக்க வைத்தான்.'
+            },
+            {
+                a: { word: "ஈணவள்", meaning: "ஈன்றவள்" },
+                b: { word: "ஈனவள்", meaning: "இழிந்தவள்" },
+                sentence: 'மகனை <span class="hl-a">ஈன்ற</span> (ஈணவள்) அந்தத் தாயை, ஒருவன் <span class="hl-b">ஈனவள்</span> (இழிந்தவள்) என இழிவாகப் பேசியது கேட்டு அனைவரும் வருந்தினர்.'
+            },
+            {
+                a: { word: "உண்", meaning: "உண்பாயாக" },
+                b: { word: "உன்", meaning: "உன்னுடைய" },
+                sentence: '<span class="hl-b">உன்</span> (உன்னுடைய) உணவை நீ <span class="hl-a">உண்</span> (உண்பாயாக).'
+            },
+            {
+                a: { word: "உண்ணல்", meaning: "உண்ணுதல்" },
+                b: { word: "உன்னல்", meaning: "நினைத்தல்" },
+                sentence: 'உணவு <span class="hl-a">உண்ணல்</span> (உண்ணுதல்) எவ்வளவு முக்கியமோ, நல்லதை <span class="hl-b">உன்னல்</span> (நினைத்தல்) அவ்வளவு முக்கியம்.'
+            },
+            {
+                a: { word: "உண்ணி", meaning: "உண்பவன், ஒருவகைப் பூச்சி" },
+                b: { word: "உன்னி", meaning: "நினைத்து, குதிரை" },
+                sentence: 'விவசாயி நன்கு <span class="hl-b">உன்னி</span> (நினைத்து) பார்த்து, பயிரை அழிக்கும் <span class="hl-a">உண்ணியை</span> (பூச்சியை) அகற்றினான்.'
+            },
+            {
+                a: { word: "ஊண்", meaning: "உணவு" },
+                b: { word: "ஊன்", meaning: "மாமிசம்" },
+                sentence: '<span class="hl-a">ஊண்</span> (உணவு) சமைக்க அவன் <span class="hl-b">ஊன்</span> (மாமிசம்) வாங்கி வந்தான்.'
+            },
+            {
+                a: { word: "எண்ண", meaning: "நினைக்க" },
+                b: { word: "என்ன", meaning: "போல, வினாச்சொல்" },
+                sentence: 'நீ <span class="hl-b">என்ன</span> செய்யப் போகிறாய் என்று நான் <span class="hl-a">எண்ண</span> (நினைக்க) ஆரம்பித்தேன்.'
+            },
+            {
+                a: { word: "எண்ணல்", meaning: "எண்ணுதல்" },
+                b: { word: "என்னல்", meaning: "என்று சொல்லுதல்" },
+                sentence: 'நல்லதை <span class="hl-a">எண்ணல்</span> (நினைத்தல்) வேண்டும் என்று பெரியோர்கள் <span class="hl-b">என்னல்</span> (சொல்லுதல்) செய்வார்கள்.'
+            },
+            {
+                a: { word: "எண்கு", meaning: "கரடி" },
+                b: { word: "என்கு", meaning: "என்று சொல்லுதல்" },
+                sentence: 'காட்டில் <span class="hl-a">எண்கு</span> (கரடி) ஒன்று வந்தது என்று நான் <span class="hl-b">என்குவேன்</span> (சொல்கிறேன்).'
+            },
+            {
+                a: { word: "ஏண்", meaning: "வலிமை" },
+                b: { word: "ஏன்", meaning: "ஒரு வினைச்சொல்" },
+                sentence: 'அவனுடைய <span class="hl-a">ஏண்</span> (வலிமை) கண்டு, <span class="hl-b">ஏன்</span> இவ்வளவு பலம் பெற்றான் என அனைவரும் வியந்தனர்.'
+            },
+            {
+                a: { word: "ஏணை", meaning: "தொட்டில்" },
+                b: { word: "ஏனை", meaning: "மற்றது" },
+                sentence: 'குழந்தையை <span class="hl-a">ஏணையில்</span> (தொட்டிலில்) தூங்க வைத்துவிட்டு, தாய் <span class="hl-b">ஏனை</span> (மற்ற) வேலைகளைச் செய்யச் சென்றாள்.'
+            },
+            {
+                a: { word: "ஐவணம்", meaning: "ஐந்து வண்ணம்" },
+                b: { word: "ஐவனம்", meaning: "மலை நெல்" },
+                sentence: 'கோயிலுக்கு <span class="hl-a">ஐவணக்</span> (ஐந்து வண்ணக்) கொடிகள் கட்டப்பட்டு, படையலுக்கு <span class="hl-b">ஐவனம்</span> (மலை நெல்) பயன்படுத்தப்பட்டது.'
+            },
+            {
+                a: { word: "ஓணம்", meaning: "ஒரு பண்டிகை" },
+                b: { word: "ஒனம்", meaning: "எழுத்துச்சாரியை" },
+                sentence: 'கேரளத்தில் கொண்டாடப்படும் பண்டிகை <span class="hl-a">ஓணம்</span>; ஆனால் இலக்கணத்தில் <span class="hl-b">ஒனம்</span> என்பது ஒரு எழுத்துச்சாரியை ஆகும்.'
+            },
+            {
+                a: { word: "கணகம்", meaning: "ஒரு படைப்பிரிவு" },
+                b: { word: "கனகம்", meaning: "பொன்" },
+                sentence: 'படைத்தலைவன் தன் <span class="hl-a">கணகத்தை</span> (படைப்பிரிவை) அணிவகுத்து, எதிரிகளிடமிருந்து <span class="hl-b">கனகத்தை</span> (பொன்னை) பாதுகாத்தான்.'
+            },
+            {
+                a: { word: "கணப்பு", meaning: "குளிர்காயும் தீ" },
+                b: { word: "களப்பு", meaning: "பாரம், அழுத்தம்" },
+                sentence: 'குளிரில் <span class="hl-a">கணப்பு</span> (நெருப்பு) காய்ந்த அவன், சுமையின் <span class="hl-b">களப்பைத்</span> (பாரத்தைத்) தாங்க முடியாமல் தவித்தான்.'
+            },
+            {
+                a: { word: "கணி", meaning: "கணித்தல்" },
+                b: { word: "கனி", meaning: "பழம், சுரங்கம், சாரம்" },
+                sentence: 'ஜோதிடர் கோள்களைக் <span class="hl-a">கணித்து</span>, மரத்தில் விளைந்த இனிய <span class="hl-b">கனியை</span> (பழத்தை) அவனுக்குக் கொடுத்தார்.'
+            },
+            {
+                a: { word: "கணம்", meaning: "கூட்டம்" },
+                b: { word: "கனம்", meaning: "பாரம்" },
+                sentence: 'மக்கள் <span class="hl-a">கணம்</span> (கூட்டம்) கூடி, <span class="hl-b">கனமான</span> (பாரமான) பொருட்களைத் தூக்கிச் சென்றனர்.'
+            },
+            {
+                a: { word: "கண்ணன்", meaning: "கிருஷ்ணன்" },
+                b: { word: "கன்னன்", meaning: "கர்ணன்" },
+                sentence: '<span class="hl-a">கண்ணன்</span> (கிருஷ்ணன்) கீதை உரைத்ததைப் போல, <span class="hl-b">கன்னன்</span> (கர்ணன்) தன் கொடையால் புகழ் பெற்றான்.'
+            },
+            {
+                a: { word: "கண்ணி", meaning: "மாலை, கயிறு, தாம்பு" },
+                b: { word: "கன்னி", meaning: "குமரிப்பெண், உமை, ஒரு ராசி" },
+                sentence: '<span class="hl-b">கன்னிப்</span> (குமரிப்) பெண் தலையில் மலர்க் <span class="hl-a">கண்ணி</span> (மாலை) அணிந்திருந்தாள்.'
+            },
+            {
+                a: { word: "கணை", meaning: "அம்பு" },
+                b: { word: "கனை", meaning: "ஒலி, கனைத்தல்" },
+                sentence: 'வேடன் எய்த <span class="hl-a">கணை</span> (அம்பு) சத்தமும், மானின் <span class="hl-b">கனைப்பொலியும்</span> (ஒலியும்) காட்டில் எதிரொலித்தன.'
+            },
+            {
+                a: { word: "கண்", meaning: "ஓர் உறுப்பு" },
+                b: { word: "கன்", meaning: "கல், செம்பு, உறுதி" },
+                sentence: '<span class="hl-b">கன்</span> (கல்) போன்ற உறுதியான மனதுடன், அவன் தன் <span class="hl-a">கண்களால்</span> இலக்கை நோக்கினான்.'
+            },
+            {
+                a: { word: "கண்று", meaning: "அம்பு" },
+                b: { word: "கன்று", meaning: "அற்பம், இளமரம், குட்டி, கைவளை" },
+                sentence: 'வேடன் எய்த <span class="hl-a">கண்று</span> (அம்பு) இலக்கைத் தாக்கியது; தொழுவத்தில் இருந்த <span class="hl-b">கன்று</span> (குட்டி) அதிர்ச்சியில் அலறியது.'
+            },
+            {
+                a: { word: "கண்ணல்", meaning: "கருதல்" },
+                b: { word: "கன்னல்", meaning: "கரும்பு, கற்கண்டு" },
+                sentence: 'அவளை அன்புடன் <span class="hl-a">கண்ணலாக</span> (கருதி) நினைத்த அவன், அவளுக்கு இனிய <span class="hl-b">கன்னல்</span> (கரும்பு) பரிசாக அளித்தான்.'
+            },
+            {
+                a: { word: "காண்", meaning: "பார்" },
+                b: { word: "கான்", meaning: "காடு, வனம்" },
+                sentence: '<span class="hl-a">காண்</span> (பார்) என்று அவன் சுட்டிக்காட்டிய திசையில், அடர்ந்த <span class="hl-b">கான்</span> (காடு) பரந்து விரிந்திருந்தது.'
+            },
+            {
+                a: { word: "காணம்", meaning: "பொன், கொள்" },
+                b: { word: "கானம்", meaning: "இசை, காடு, வனம், தேர்" },
+                sentence: 'அரசன் புலவனுக்கு <span class="hl-a">காணமாக</span> (பொன்னாக) பரிசு அளித்தான்; புலவனோ இனிய <span class="hl-b">கானம்</span> (இசை) பாடி மகிழ்வித்தான்.'
+            },
+            {
+                a: { word: "காணல்", meaning: "பார்த்தல்" },
+                b: { word: "கானல்", meaning: "பாலை" },
+                sentence: 'தூரத்தில் தெரிந்த <span class="hl-b">கானலை</span> (பாலை நிலத் தோற்றத்தை) நீர் என எண்ணி ஏமாந்தவன், நெருங்கிக் <span class="hl-a">காணல்</span> (பார்த்த) பின்னரே உண்மையை உணர்ந்தான்.'
+            },
+            {
+                a: { word: "கிணி", meaning: "கைத்தாளம்" },
+                b: { word: "கினி", meaning: "பீடை" },
+                sentence: 'கோவில் விழாவில் <span class="hl-a">கிணி</span> (கைத்தாளம்) முழங்க, அந்த ஊரில் பரவிய <span class="hl-b">கினி</span> (பீடை) அனைவரையும் அச்சுறுத்தியது.'
+            },
+            {
+                a: { word: "கிண்ணம்", meaning: "வட்டில், கிண்ணி" },
+                b: { word: "கின்னம்", meaning: "கிளை, துன்பம்" },
+                sentence: 'பாலை <span class="hl-a">கிண்ணத்தில்</span> (வட்டிலில்) வைத்தவனுக்கு, வாழ்வில் ஏற்பட்ட <span class="hl-b">கின்னம்</span> (துன்பம்) அவனை வாட்டியது.'
+            },
+            {
+                a: { word: "குணி", meaning: "வில், ஊமை" },
+                b: { word: "குனி", meaning: "குனிதல், வளை" },
+                sentence: 'வில்லாளன் <span class="hl-a">குணியை</span> (வில்லை) வளைத்து, இலக்கை நோக்கி <span class="hl-b">குனிந்து</span> (குனிதல்) நின்றான்.'
+            },
             // Add more pairs below, e.g.:
             // {
             //     a: { word: "...", meaning: "..." },
@@ -196,7 +425,7 @@
         ];
 
         const container = document.getElementById('pairs-container');
-        container.innerHTML = pairs.map(p => {
+        container.innerHTML = pairs.map((p, index) => {
             const sentences = Array.isArray(p.sentence) ? p.sentence : [p.sentence];
             const label = sentences.length > 1 ? 'எடுத்துக்காட்டு வாக்கியங்கள்:' : 'எடுத்துக்காட்டு வாக்கியம்:';
             const sentenceLines = sentences.map((s, i) =>
@@ -205,6 +434,7 @@
 
             return `
             <div class="pair-block">
+                <span class="pair-number">${index + 1}</span>
                 <div class="pair-row">
                     <div class="pair-word word-a">
                         <span class="word">${p.a.word}</span> <span class="meaning">=&gt; ${p.a.meaning}</span>
@@ -220,6 +450,8 @@
             </div>
         `;
         }).join('');
+
+        document.getElementById('pair-count').textContent = pairs.length;
     </script>
 </body>
 </html>
