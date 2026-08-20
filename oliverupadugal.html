@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>TNPSC Group 2/2A - ஒலி வேறுபாடுகள்</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        html {
+            -webkit-text-size-adjust: 100%;
+        }
+        body, .pair-text, .text-content {
+            overflow-wrap: break-word;
+            word-break: break-word;
+        }
+        @page {
+            size: A4;
+            margin: 18mm 15mm;
+            background-color: #faf8f5;
+            @top-right {
+                content: "TNPSC Group 2/2A - General Tamil";
+                font-size: 9pt;
+                color: #888;
+            }
+            @bottom-center {
+                content: counter(page);
+                font-size: 10pt;
+                color: #555;
+            }
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #333333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0 15px;
+            background-color: #faf8f5;
+        }
+        .home-link {
+            display: inline-block;
+            margin: 12px 0 0 0;
+            color: #2c3e50;
+            font-size: 10.5pt;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .home-link:hover {
+            text-decoration: underline;
+        }
+        .header {
+            text-align: center;
+            margin: 0 -15px 20px -15px;
+            padding: 20px 15px;
+            background-color: #2c3e50;
+            color: #ffffff;
+            border-bottom: 4px solid #e74c3c;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: clamp(16pt, 5vw, 24pt);
+            line-height: 1.3;
+        }
+        .header p {
+            margin: 5px 0 0 0;
+            font-size: clamp(10pt, 3vw, 14pt);
+            color: #d5dbdb;
+        }
+        .intro-note {
+            max-width: 900px;
+            margin: 0 auto 25px auto;
+            padding: 12px 16px;
+            background-color: #fdfefe;
+            border: 1px dashed #bdc3c7;
+            border-radius: 6px;
+            font-size: 10.5pt;
+            color: #555;
+            page-break-inside: avoid;
+        }
+        .pair-block {
+            max-width: 900px;
+            margin: 0 auto 20px auto;
+            padding: 15px;
+            background-color: #ffffff;
+            border: 1px solid #d5dbdb;
+            border-radius: 6px;
+            page-break-inside: avoid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .pair-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 16px;
+            margin-bottom: 8px;
+        }
+        .pair-word {
+            flex: 1 1 260px;
+            padding: 10px 12px;
+            border-radius: 4px;
+            font-size: 12pt;
+        }
+        .pair-word.word-a {
+            background-color: #eaf2f8;
+            border-left: 4px solid #2980b9;
+        }
+        .pair-word.word-b {
+            background-color: #fdedec;
+            border-left: 4px solid #c0392b;
+        }
+        .pair-word .word {
+            font-weight: bold;
+        }
+        .pair-word.word-a .word {
+            color: #2980b9;
+        }
+        .pair-word.word-b .word {
+            color: #c0392b;
+        }
+        .pair-word .meaning {
+            color: #444;
+            font-size: 11pt;
+        }
+        .example-sentence {
+            margin-top: 10px;
+            padding: 10px 12px;
+            background-color: #f4f6f7;
+            border-left: 4px solid #7f8c8d;
+            font-size: 11pt;
+        }
+        .example-sentence .label {
+            font-weight: bold;
+            color: #16a085;
+            font-size: 10.5pt;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .example-sentence .sentence-line {
+            display: block;
+            margin-top: 4px;
+        }
+        .example-sentence .sentence-line:first-of-type {
+            margin-top: 0;
+        }
+        .example-sentence .hl-a {
+            color: #2980b9;
+            font-weight: bold;
+        }
+        .example-sentence .hl-b {
+            color: #c0392b;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>ஒலி வேறுபாடுகள்</h1>
+        <p>ஒரே மாதிரி ஒலிக்கும் சொற்களுக்கிடையேயான பொருள் வேறுபாடு</p>
+    </div>
+
+    <a class="home-link" href="index.html">&larr; முகப்புக்குத் திரும்ப</a>
+
+    <div class="intro-note">
+        <span class="label">குறிப்பு:</span> கீழே கொடுக்கப்பட்டுள்ள சொற்கள் கேட்பதற்கு ஒரே மாதிரி இருந்தாலும், ண்/ன் போன்ற எழுத்து வேறுபாட்டால் பொருள் முற்றிலும் மாறுபடும். இவ்வேறுபாட்டை கவனத்தில் கொண்டு பயிற்சி செய்யவும்.
+    </div>
+
+    <div id="pairs-container"></div>
+
+    <script>
+        // Add new word pairs here. Each entry becomes one rendered block.
+        // sentence: raw HTML, OR an array of raw HTML strings for multiple examples.
+        // Wrap the A-word occurrence in <span class="hl-a">...</span>
+        // and the B-word occurrence in <span class="hl-b">...</span>.
+        const pairs = [
+            {
+                a: { word: "அணுக்கம்", meaning: "அண்டை, அன்மை" },
+                b: { word: "அனுக்கம்", meaning: "வருத்தம், அச்சம்" },
+                sentence: 'என் வீட்டிற்கு <span class="hl-a">அணுக்கமாக</span> இருக்கும் இடத்தில் நடந்த விபத்து எனக்கு <span class="hl-b">அனுக்கத்தை</span> ஏற்படுத்தியது.'
+            },
+            {
+                a: { word: "அணை", meaning: "படுக்கை, அணைத்துக் கொள்ளுதல்" },
+                b: { word: "அனை", meaning: "அன்னை, மீன்" },
+                sentence: 'குழந்தையை <span class="hl-a">அணைத்த</span> <span class="hl-b">அனை</span> (அன்னை) அன்புடன் தாலாட்டினாள்.'
+            },
+            {
+                a: { word: "அணைய", meaning: "சேர, அடைய" },
+                b: { word: "அனைய", meaning: "அத்தகைய" },
+                sentence: '<span class="hl-b">அனைய</span> (அத்தகைய) நல்ல மனிதர்களின் உதவியால் இலக்கை <span class="hl-a">அணைய</span> முடியும்.'
+            },
+            // Add more pairs below, e.g.:
+            // {
+            //     a: { word: "...", meaning: "..." },
+            //     b: { word: "...", meaning: "..." },
+            //     sentence: '...'
+            // },
+        ];
+
+        const container = document.getElementById('pairs-container');
+        container.innerHTML = pairs.map(p => {
+            const sentences = Array.isArray(p.sentence) ? p.sentence : [p.sentence];
+            const label = sentences.length > 1 ? 'எடுத்துக்காட்டு வாக்கியங்கள்:' : 'எடுத்துக்காட்டு வாக்கியம்:';
+            const sentenceLines = sentences.map((s, i) =>
+                `<span class="sentence-line">${sentences.length > 1 ? `${i + 1}. ` : ''}${s}</span>`
+            ).join('');
+
+            return `
+            <div class="pair-block">
+                <div class="pair-row">
+                    <div class="pair-word word-a">
+                        <span class="word">${p.a.word}</span> <span class="meaning">=&gt; ${p.a.meaning}</span>
+                    </div>
+                    <div class="pair-word word-b">
+                        <span class="word">${p.b.word}</span> <span class="meaning">=&gt; ${p.b.meaning}</span>
+                    </div>
+                </div>
+                <div class="example-sentence">
+                    <span class="label">${label}</span>
+                    ${sentenceLines}
+                </div>
+            </div>
+        `;
+        }).join('');
+    </script>
+</body>
+</html>
