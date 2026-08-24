@@ -78,33 +78,27 @@
             color: #555;
             page-break-inside: avoid;
         }
+        .section-heading {
+            max-width: 900px;
+            margin: 30px auto 15px auto;
+            color: #c0392b;
+            font-size: 15pt;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #e6b0aa;
+            page-break-after: avoid;
+        }
+        .section-heading:first-of-type {
+            margin-top: 0;
+        }
         .pair-block {
-            position: relative;
             max-width: 900px;
             margin: 0 auto 20px auto;
-            padding: 15px 15px 15px 44px;
+            padding: 15px;
             background-color: #ffffff;
             border: 1px solid #d5dbdb;
             border-radius: 6px;
             page-break-inside: avoid;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-        .pair-number {
-            position: absolute;
-            top: 15px;
-            left: 12px;
-            min-width: 22px;
-            padding: 2px 6px;
-            background-color: #2c3e50;
-            color: #ffffff;
-            font-size: 9.5pt;
-            font-weight: bold;
-            text-align: center;
-            border-radius: 10px;
-        }
-        .pair-count {
-            font-weight: bold;
-            color: #2c3e50;
         }
         .pair-row {
             display: flex;
@@ -134,6 +128,13 @@
         }
         .pair-word.word-b .word {
             color: #c0392b;
+        }
+        .pair-word.word-c {
+            background-color: #f5eef8;
+            border-left: 4px solid #8e44ad;
+        }
+        .pair-word.word-c .word {
+            color: #8e44ad;
         }
         .pair-word .meaning {
             color: #444;
@@ -168,6 +169,10 @@
             color: #c0392b;
             font-weight: bold;
         }
+        .example-sentence .hl-c {
+            color: #8e44ad;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -180,10 +185,13 @@
 
     <div class="intro-note">
         <span class="label">குறிப்பு:</span> கீழே கொடுக்கப்பட்டுள்ள சொற்கள் கேட்பதற்கு ஒரே மாதிரி இருந்தாலும், ண்/ன் போன்ற எழுத்து வேறுபாட்டால் பொருள் முற்றிலும் மாறுபடும். இவ்வேறுபாட்டை கவனத்தில் கொண்டு பயிற்சி செய்யவும்.
-        <br>மொத்தம் <span class="pair-count" id="pair-count">0</span> சொல் ஜோடிகள்.
     </div>
 
+    <h2 class="section-heading">ண் / ன் ஒலி வேறுபாடுகள்</h2>
     <div id="pairs-container"></div>
+
+    <h2 class="section-heading">ல் / ழ் / ள் ஒலி வேறுபாடுகள்</h2>
+    <div id="pairs-container-2"></div>
 
     <script>
         // Add new word pairs here. Each entry becomes one rendered block.
@@ -416,6 +424,266 @@
                 b: { word: "குனி", meaning: "குனிதல், வளை" },
                 sentence: 'வில்லாளன் <span class="hl-a">குணியை</span> (வில்லை) வளைத்து, இலக்கை நோக்கி <span class="hl-b">குனிந்து</span> (குனிதல்) நின்றான்.'
             },
+            {
+                a: { word: "குணித்தல்", meaning: "மதித்தல், எண்ணுதல்" },
+                b: { word: "குனித்தல்", meaning: "வளைதல்" },
+                sentence: 'அவன் நிலத்தின் அளவை <span class="hl-a">குணித்தான்</span> (மதித்தான்); வில்லாளன் வில்லை <span class="hl-b">குனித்தான்</span> (வளைத்தான்).'
+            },
+            {
+                a: { word: "குணிப்பு", meaning: "அளவு, ஆராய்ச்சி" },
+                b: { word: "குனிப்பு", meaning: "வளைப்பு, ஆடல்" },
+                sentence: 'நிலத்தின் <span class="hl-a">குணிப்பு</span> (ஆராய்ச்சி) முடிந்தபின், நடனமாது அழகிய <span class="hl-b">குனிப்புடன்</span> (ஆடலுடன்) ஆடினாள்.'
+            },
+            {
+                a: { word: "கேணம்", meaning: "செழிப்பு, மிகுதி" },
+                b: { word: "கேனம்", meaning: "பைத்தியம், பித்து" },
+                sentence: 'ஊரின் <span class="hl-a">கேணத்தை</span> (செழிப்பை) கண்டு மகிழ்ந்தவன், அயலவனின் <span class="hl-b">கேனத்தை</span> (பைத்தியத்தை) கண்டு பரிதாபப்பட்டான்.'
+            },
+            {
+                a: { word: "கேணி", meaning: "கிணறு" },
+                b: { word: "கேனி", meaning: "பித்துப் பிடித்தவர்" },
+                sentence: '<span class="hl-a">கேணியில்</span> (கிணற்றில்) தண்ணீர் மொள்ளச் சென்ற <span class="hl-b">கேனி</span> (பித்துப் பிடித்தவர்) ஒருவரைக் கண்டு அனைவரும் அஞ்சினர்.'
+            },
+            {
+                a: { word: "கோண்", meaning: "கோணல், மாறுபாடு" },
+                b: { word: "கோன்", meaning: "அரசன்" },
+                sentence: 'நாட்டின் <span class="hl-b">கோன்</span> (அரசன்), வரி வசூலில் ஏற்பட்ட <span class="hl-a">கோணலை</span> (மாறுபாட்டை) களைந்தான்.'
+            },
+            {
+                a: { word: "சாணம்", meaning: "சாணைக்கல், சாணி" },
+                b: { word: "சானம்", meaning: "அம்மி, பெருங்காயம்" },
+                sentence: 'கத்தியைத் தீட்ட <span class="hl-a">சாணைக்கல்</span> பயன்படுத்தினான்; மருந்துக்கு <span class="hl-b">சானம்</span> (பெருங்காயம்) சேர்த்தான்.'
+            },
+            {
+                a: { word: "சுணை", meaning: "கூர்மை, கரணை" },
+                b: { word: "சுனை", meaning: "நீரூற்று" },
+                sentence: 'வாளின் <span class="hl-a">சுணையை</span> (கூர்மையை) சோதித்தபின், மலைப் பாதையில் தூய நீருள்ள <span class="hl-b">சுனையை</span> (நீரூற்றை) கண்டான்.'
+            },
+            {
+                a: { word: "சுண்ணம்", meaning: "வாசனைப் பொடி" },
+                b: { word: "சுன்னம்", meaning: "சுண்ணாம்பு, பூஜ்ஜியம்" },
+                sentence: 'கோவிலில் <span class="hl-a">சுண்ணம்</span> (வாசனைப் பொடி) தூவப்பட்டது; சுவரில் <span class="hl-b">சுன்னம்</span> (சுண்ணாம்பு) பூசப்பட்டது.'
+            },
+            {
+                a: { word: "சேணம்", meaning: "மெத்தை" },
+                b: { word: "சேனம்", meaning: "பருந்து" },
+                sentence: '<span class="hl-a">சேணத்தில்</span> (மெத்தையில்) ஓய்வெடுத்தவன், வானில் பறந்த <span class="hl-b">சேனத்தை</span> (பருந்தை) கண்டு வியந்தான்.'
+            },
+            {
+                a: { word: "சேணை", meaning: "அறிவு" },
+                b: { word: "சேனை", meaning: "படை" },
+                sentence: 'அவனுடைய <span class="hl-a">சேணை</span> (அறிவு) மிக்க தந்திரத்தால், <span class="hl-b">சேனை</span> (படை) வெற்றி பெற்றது.'
+            },
+            {
+                a: { word: "சோணம்", meaning: "பொன், சிவப்பு, தீ, சோணகிரி" },
+                b: { word: "சோனம்", meaning: "மேகம்" },
+                sentence: '<span class="hl-a">சோணகிரியில்</span> பொன் தேடிச் சென்றவன், வானில் திரண்ட <span class="hl-b">சோனத்தை</span> (மேகத்தை) கண்டான்.'
+            },
+            {
+                a: { word: "சோணை", meaning: "ஒரு நதி, சேரன் மனைவி" },
+                b: { word: "சோனை", meaning: "மழைச்சாரல், மேகம்" },
+                sentence: '<span class="hl-a">சோணை</span> (நதி) கரையில் நின்றவன் மேல் <span class="hl-b">சோனை</span> (மழைச்சாரல்) பொழிந்தது.'
+            },
+            {
+                a: { word: "தண்", meaning: "குளிர்ச்சி" },
+                b: { word: "தன்", meaning: "தன்னுடைய" },
+                sentence: '<span class="hl-a">தண்ணென்ற</span> குளிர்ச்சியுடன் இருந்த அந்த இடம், அவனுடைய <span class="hl-b">தன்</span> (தன்னுடைய) மனதிற்குப் பிடித்திருந்தது.'
+            },
+            {
+                a: { word: "தணி", meaning: "தணித்தல்" },
+                b: { word: "தனி", meaning: "தனிமை" },
+                sentence: 'கோபத்தை <span class="hl-a">தணித்தபின்</span>, அவன் <span class="hl-b">தனிமையில்</span> அமர்ந்து சிந்தித்தான்.'
+            },
+            {
+                a: { word: "தாணி", meaning: "தான்றிமரம்" },
+                b: { word: "தானி", meaning: "இருப்பிடம், பண்டசாலை" },
+                sentence: '<span class="hl-a">தாணி</span> (தான்றிமரம்) நிழலில் அமர்ந்தவன், தானியங்கள் சேமிக்கும் <span class="hl-b">தானிக்குள்</span> (பண்டசாலைக்குள்) நுழைந்தான்.'
+            },
+            {
+                a: { word: "தாணு", meaning: "சிவன், தூண், நிலைப்பேறு" },
+                b: { word: "தானு", meaning: "காற்று" },
+                sentence: 'கோவிலில் <span class="hl-a">தாணுவை</span> (சிவனை) வணங்கியபின், அவன் வெளியே வீசிய <span class="hl-b">தானுவை</span> (காற்றை) உணர்ந்தான்.'
+            },
+            {
+                a: { word: "திணை", meaning: "ஒழுக்கம், குலம்" },
+                b: { word: "தினை", meaning: "தானியம், ஒருவகைப் புன்செய்ப் பயிர்" },
+                sentence: 'பழந்தமிழ் இலக்கியத்தில் <span class="hl-a">திணை</span> (ஒழுக்கம்) முக்கியமானது; அந்த நிலத்தில் <span class="hl-b">தினை</span> (புன்செய்ப் பயிர்) விளைந்திருந்தது.'
+            },
+            {
+                a: { word: "திண்மை", meaning: "உறுதி" },
+                b: { word: "தின்மை", meaning: "தீமை" },
+                sentence: 'அவனுடைய <span class="hl-a">திண்மையை</span> (உறுதியை) கண்டவர்கள், மற்றவரின் <span class="hl-b">தின்மையை</span> (தீமையை) இகழ்ந்தனர்.'
+            },
+            {
+                a: { word: "திண்", meaning: "வலிமை" },
+                b: { word: "தின்", meaning: "உண்" },
+                sentence: '<span class="hl-a">திண்ணிய</span> (வலிமையான) மனதுடன் அவன் தன் உணவைத் <span class="hl-b">தின்றான்</span> (உண்டான்).'
+            },
+            {
+                a: { word: "துணி", meaning: "துணிதல், கந்தை" },
+                b: { word: "துனி", meaning: "அச்சம், ஊடல் நீட்டித்தல்" },
+                sentence: 'அவள் அணிந்திருந்த <span class="hl-a">துணி</span> (கந்தை) கிழிந்திருந்தது; ஆனாலும் அவள் மனதில் <span class="hl-b">துனி</span> (அச்சம்) ஏதுமில்லை.'
+            },
+            {
+                a: { word: "தெண்", meaning: "தெளிவு" },
+                b: { word: "தென்", meaning: "தெற்கு, அழகு" },
+                sentence: 'நீரின் <span class="hl-a">தெண்மையை</span> (தெளிவை) கண்டு மகிழ்ந்தவன், <span class="hl-b">தென்</span> (தெற்கு) திசையை நோக்கி நடந்தான்.'
+            },
+            {
+                a: { word: "நண்பகல்", meaning: "நடுப்பகல்" },
+                b: { word: "நன்பகல்", meaning: "நல்லபகல்" },
+                sentence: '<span class="hl-a">நண்பகல்</span> (நடுப்பகல்) நேரத்தில் தொடங்கிய விழா, ஒரு <span class="hl-b">நன்பகலாக</span> (நல்ல பகலாக) அமைந்தது.'
+            },
+            {
+                a: { word: "நணி", meaning: "அணி (அழகு)" },
+                b: { word: "நனி", meaning: "மிகுதி" },
+                sentence: '<span class="hl-a">நணியில்</span> (அழகில்) சிறந்திருந்த அவள், <span class="hl-b">நனி</span> (மிகுதி) புகழ் பெற்றாள்.'
+            },
+            {
+                a: { word: "நாண்", meaning: "வெட்கம், கயிறு" },
+                b: { word: "நான்", meaning: "தன்மைப் பெயர்" },
+                sentence: '<span class="hl-a">நாணத்துடன்</span> (வெட்கத்துடன்) நின்ற <span class="hl-b">நான்</span>, வில்லின் நாணை (கயிற்றை) இழுத்தேன்.'
+            },
+            {
+                a: { word: "நாணம்", meaning: "வெட்கம்" },
+                b: { word: "நானம்", meaning: "புனுகு, கவரிமான்" },
+                sentence: '<span class="hl-a">நாணத்தில்</span> (வெட்கத்தில்) சிவந்த முகத்துடன், அவள் <span class="hl-b">நானம்</span> (புனுகு) பூசிக்கொண்டாள்.'
+            },
+            {
+                a: { word: "பணி", meaning: "வேலை, கட்டளையிடு" },
+                b: { word: "பனி", meaning: "துன்பம், குளிர், சொல், நோய்" },
+                sentence: '<span class="hl-a">பணி</span> (வேலை) முடிந்து வீடு திரும்பியபோது, மலைப் பகுதியில் <span class="hl-b">பனி</span> (குளிர்) பொழிந்தது.'
+            },
+            {
+                a: { word: "பணை", meaning: "முரசு, உயரம், பரந்த" },
+                b: { word: "பனை", meaning: "ஒருவகை மரம்" },
+                sentence: '<span class="hl-a">பணையின்</span> (முரசின்) ஓசை கேட்டு, <span class="hl-b">பனை</span> (ஒருவகை மரம்) மரத்தடியில் மக்கள் கூடினர்.'
+            },
+            {
+                a: { word: "பண்", meaning: "இசை" },
+                b: { word: "பன்", meaning: "அரிவாள், பல" },
+                sentence: 'இனிய <span class="hl-a">பண்</span> (இசை) பாடியவன், <span class="hl-b">பன்</span> (அரிவாள்) கொண்டு விறகு வெட்டினான்.'
+            },
+            {
+                a: { word: "பண்ணை", meaning: "தோட்டம்" },
+                b: { word: "பன்னை", meaning: "கீரைச்செடி" },
+                sentence: '<span class="hl-a">பண்ணையில்</span> (தோட்டத்தில்) <span class="hl-b">பன்னை</span> (கீரைச்செடி) செழித்து வளர்ந்தது.'
+            },
+            {
+                a: { word: "பண்ணுதல்", meaning: "செய்தல்" },
+                b: { word: "பன்னுதல்", meaning: "நெருங்குதல்" },
+                sentence: 'நல்லது <span class="hl-a">பண்ணுதல்</span> (செய்தல்) வேண்டும் என நண்பர்கள் ஒருவரை ஒருவர் <span class="hl-b">பன்னி</span> (நெருங்கி) அறிவுறுத்தினர்.'
+            },
+            {
+                a: { word: "பண்ணி", meaning: "செய்து" },
+                b: { word: "பன்னி", meaning: "சீப்பு, பனிநீர், மனை, சனல்" },
+                sentence: 'உணவு <span class="hl-a">பண்ணி</span> (செய்து) வைத்தவள், முடியை <span class="hl-b">பன்னியால்</span> (சீப்பால்) வாரிக்கொண்டாள்.'
+            },
+            {
+                a: { word: "பண்மை", meaning: "தகுதி" },
+                b: { word: "பன்மை", meaning: "பல" },
+                sentence: 'தலைவனுக்குரிய <span class="hl-a">பண்மை</span> (தகுதி) இருந்தும், அவன் <span class="hl-b">பன்மை</span> (பலருடைய) கருத்தையும் மதித்தான்.'
+            },
+            {
+                a: { word: "பணித்தல்", meaning: "கட்டளையிடுதல்" },
+                b: { word: "பனித்தல்", meaning: "துளிர்த்தல், தூறல், விரிந்த" },
+                sentence: 'அரசன் <span class="hl-a">பணித்த</span> (கட்டளையிட்ட) பணிக்காக, விடியற்காலையில் பயிர் <span class="hl-b">பனித்தது</span> (தூறல் பட்டது).'
+            },
+            {
+                a: { word: "பட்டணம்", meaning: "நகரம்" },
+                b: { word: "பட்டினம்", meaning: "கடற்கரை நகர்" },
+                sentence: '<span class="hl-a">பட்டணத்தில்</span> (நகரத்தில்) பிறந்த அவன், <span class="hl-b">பட்டினத்திற்கு</span> (கடற்கரை நகருக்கு) வேலைக்காக குடிபெயர்ந்தான்.'
+            },
+            {
+                a: { word: "பாணம்", meaning: "நீருணவு" },
+                b: { word: "பானம்", meaning: "அம்பு" },
+                sentence: 'நீரிழப்பால் <span class="hl-a">பாணம்</span> (நீருணவு) அருந்திய வேடன், மீண்டும் <span class="hl-b">பானத்தை</span> (அம்பை) எடுத்து வில்லில் பூட்டினான்.'
+            },
+            {
+                a: { word: "புணை", meaning: "தெப்பம்" },
+                b: { word: "புனை", meaning: "இட்டுக்கட்டுதல், கற்பனை" },
+                sentence: 'ஆற்றைக் கடக்க <span class="hl-a">புணை</span> (தெப்பம்) அமைத்த அவன், அதைப் பற்றி ஒரு கதையையும் <span class="hl-b">புனைந்தான்</span> (இட்டுக்கட்டினான்).'
+            },
+            {
+                a: { word: "புண்", meaning: "காயம்" },
+                b: { word: "புன்", meaning: "கீழான" },
+                sentence: 'கையில் ஏற்பட்ட <span class="hl-a">புண்ணைக்</span> (காயத்தைக்) கண்டு, அந்தப் <span class="hl-b">புன்</span> (கீழான) மனிதன் கேலி செய்தான்.'
+            },
+            {
+                a: { word: "பேணம்", meaning: "பேணுதல்" },
+                b: { word: "பேனம்", meaning: "நுரை" },
+                sentence: 'விருந்தினரை <span class="hl-a">பேணிய</span> அவள், பாலில் மிதந்த <span class="hl-b">பேனத்தை</span> (நுரையை) அகற்றினாள்.'
+            },
+            {
+                a: { word: "பேண்", meaning: "போற்று, உபசரி" },
+                b: { word: "பேன்", meaning: "ஓர் உயிரி" },
+                sentence: 'பெற்றோரை <span class="hl-a">பேணுவது</span> (போற்றுவது) கடமை என்பான், தலையில் ஊர்ந்த <span class="hl-b">பேனை</span> (ஓர் உயிரியை) எடுத்தான்.'
+            },
+            {
+                a: { word: "மணம்", meaning: "வாசனை, திருமணம்" },
+                b: { word: "மனம்", meaning: "உள்ளம், இந்துப்பு" },
+                sentence: 'திரு<span class="hl-a">மண</span> விழாவில், அனைவரின் <span class="hl-b">மனமும்</span> (உள்ளமும்) மகிழ்ச்சியால் நிறைந்தது.'
+            },
+            {
+                a: { word: "மணை", meaning: "மரப்பலகை, மணவறை" },
+                b: { word: "மனை", meaning: "இடம், வீடு" },
+                sentence: '<span class="hl-a">மணையில்</span> (மரப்பலகையில்) அமர்ந்தவன், தன் <span class="hl-b">மனைக்குள்</span> (வீட்டிற்குள்) நுழைந்தான்.'
+            },
+            {
+                a: { word: "மண்", meaning: "தரை, மண்வகை" },
+                b: { word: "மன்", meaning: "மன்னன், பெருமை" },
+                sentence: '<span class="hl-a">மண்ணின்</span> (தரையின்) மேல் <span class="hl-b">மன்னன்</span> அமர்ந்திருந்தான்.'
+            },
+            {
+                a: { word: "மண்ணை", meaning: "இளமை, கொடி வகை" },
+                b: { word: "மன்னை", meaning: "தொண்டை, கோபம்" },
+                sentence: 'இளம் <span class="hl-a">மண்ணையாய்</span> (இளமையாய்) இருந்தவன், கோபத்தில் தன் <span class="hl-b">மன்னையை</span> (தொண்டையை) பிடித்துக் கொண்டான்.'
+            },
+            {
+                a: { word: "மாணி", meaning: "அழகு, பிரம்மசாரி" },
+                b: { word: "மானி", meaning: "மானம் உடையவர்" },
+                sentence: 'பிரம்மசாரியான <span class="hl-a">மாணி</span> அவன், <span class="hl-b">மானமுடைய</span> (மானி) ஒருவரை மிகவும் மதித்தான்.'
+            },
+            {
+                a: { word: "மாண்", meaning: "மாட்சிமை" },
+                b: { word: "மான்", meaning: "ஒரு விலங்கு" },
+                sentence: 'அவனுடைய <span class="hl-a">மாண்பை</span> (மாட்சிமையை) கண்டவர்கள், காட்டில் ஓடிய <span class="hl-b">மானைப்</span> போல் அவன் வேகமாகச் செயல்படுவான் என்றனர்.'
+            },
+            {
+                a: { word: "மூணை", meaning: "வெறுப்பு, மிகுதி" },
+                b: { word: "முனை", meaning: "முன்பகுதி, துணிவு, முதன்மை" },
+                sentence: 'போரின் மீதான <span class="hl-a">மூணையை</span> (வெறுப்பை) கடந்து, படை <span class="hl-b">முனையை</span> (முன்பகுதியை) நோக்கி துணிவுடன் சென்றது.'
+            },
+            {
+                a: { word: "வணம்", meaning: "ஓசை" },
+                b: { word: "வனம்", meaning: "காடு, துளசி" },
+                sentence: 'மணி ஓசையின் <span class="hl-a">வணத்தை</span> (ஓசையை) கேட்டு, <span class="hl-b">வனத்தில்</span> (காட்டில்) இருந்த பறவைகள் பறந்தன.'
+            },
+            {
+                a: { word: "வண்மை", meaning: "வளப்பம், கொடை" },
+                b: { word: "வன்மை", meaning: "உறுதி, வலிமை" },
+                sentence: 'கொடையால் <span class="hl-a">வண்மை</span> (வளப்பம்) பெற்ற அரசன், போரில் <span class="hl-b">வன்மையையும்</span> (வலிமையையும்) காட்டினான்.'
+            },
+            {
+                a: { word: "வண்ணம்", meaning: "நிறம், குணம், அழகு" },
+                b: { word: "வன்னம்", meaning: "எழுத்து, நிறம்" },
+                sentence: 'ஓவியனின் <span class="hl-a">வண்ணங்கள்</span> (நிறங்கள்) அழகாக இருந்தன; அவன் எழுதிய <span class="hl-b">வன்னங்களும்</span> (எழுத்துகளும்) தெளிவாக இருந்தன.'
+            },
+            {
+                a: { word: "வாணகம்", meaning: "அக்கினி, பசுமடி" },
+                b: { word: "வானகம்", meaning: "மேலுலகம்" },
+                sentence: '<span class="hl-a">வாணகத்தை</span> (அக்கினியை) மூட்டியவன், <span class="hl-b">வானகத்தை</span> (மேலுலகத்தை) நோக்கி வேண்டினான்.'
+            },
+            {
+                a: { word: "வாணம்", meaning: "அம்பு, தீ, மத்தாப்பு" },
+                b: { word: "வானம்", meaning: "ஆகாயம், மழை" },
+                sentence: 'வேடன் எய்த <span class="hl-a">வாணம்</span> (அம்பு) <span class="hl-b">வானை</span> (ஆகாயத்தை) நோக்கிச் சென்றது.'
+            },
+            {
+                a: { word: "வாணி", meaning: "கலைமகள், சரஸ்வதி" },
+                b: { word: "வானி", meaning: "துகிற்கொடி" },
+                sentence: 'கலைமகள் <span class="hl-a">வாணியை</span> (சரஸ்வதியை) வணங்கியபின், கோவில் <span class="hl-b">வானியில்</span> (துகிற்கொடியில்) அலங்காரம் செய்தனர்.'
+            },
             // Add more pairs below, e.g.:
             // {
             //     a: { word: "...", meaning: "..." },
@@ -424,34 +692,213 @@
             // },
         ];
 
-        const container = document.getElementById('pairs-container');
-        container.innerHTML = pairs.map((p, index) => {
-            const sentences = Array.isArray(p.sentence) ? p.sentence : [p.sentence];
-            const label = sentences.length > 1 ? 'எடுத்துக்காட்டு வாக்கியங்கள்:' : 'எடுத்துக்காட்டு வாக்கியம்:';
-            const sentenceLines = sentences.map((s, i) =>
-                `<span class="sentence-line">${sentences.length > 1 ? `${i + 1}. ` : ''}${s}</span>`
-            ).join('');
+        // ல் / ழ் / ள் ஒலி வேறுபாடு. Some entries are three-way (a/b/c) — add "c" for a third word.
+        const pairsLzhL = [
+            {
+                a: { word: "அலகு", meaning: "பறவையின் மூக்கு, அளவு, ஆண்பனை" },
+                b: { word: "அழகு", meaning: "வனப்பு" },
+                c: { word: "அளகு", meaning: "சேவல், பெண்கூகை" },
+                sentence: 'பறவையின் <span class="hl-a">அலகில்</span> (மூக்கில்) <span class="hl-b">அழகு</span> (வனப்பு) இருந்தது; மரத்தின் மேல் அமர்ந்த <span class="hl-c">அளகு</span> (சேவல்) கூவியது.'
+            },
+            {
+                a: { word: "அலகம்", meaning: "திப்பிலி" },
+                b: { word: "அளகம்", meaning: "வெள்ளெருக்கு, நீர்" },
+                sentence: 'மருந்துக்கு <span class="hl-a">அலகம்</span> (திப்பிலி) சேர்த்தான்; குளக்கரையில் <span class="hl-b">அளகம்</span> (வெள்ளெருக்கு) வளர்ந்திருந்தது.'
+            },
+            {
+                a: { word: "அலகை", meaning: "கற்றாழை, பேய்" },
+                b: { word: "அளகை", meaning: "அளகாபுரி, பெண்" },
+                sentence: '<span class="hl-a">அலகைச்</span> (கற்றாழைச்) செடிக்கு அருகில் ஒரு பேய் (அலகை) தோன்றியதாக நினைத்து <span class="hl-b">அளகை</span> (பெண்) பயந்தாள்.'
+            },
+            {
+                a: { word: "அழம்", meaning: "பிணம்" },
+                b: { word: "அலம்", meaning: "கலப்பை" },
+                c: { word: "அளம்", meaning: "உப்பு" },
+                sentence: 'போர்க்களத்தில் கிடந்த <span class="hl-a">அழத்தை</span> (பிணத்தை) கண்டவன், <span class="hl-b">அலத்தால்</span> (கலப்பையால்) நிலத்தை உழுது, அதில் <span class="hl-c">அளம்</span> (உப்பு) விளைவித்தான்.'
+            },
+            {
+                a: { word: "அலத்தல்", meaning: "அலட்டல், அலைதல்" },
+                b: { word: "அளத்தல்", meaning: "அளவிடுதல், மதித்தல்" },
+                sentence: 'வீணாக <span class="hl-a">அலைந்து</span> திரிந்தவன், நிலத்தை <span class="hl-b">அளக்கும்</span> (அளத்தல்) வேலையில் சேர்ந்தான்.'
+            },
+            {
+                a: { word: "அலவன்", meaning: "ஆண்நண்டு" },
+                b: { word: "அளவன்", meaning: "அளப்பவன், உப்பு எடுப்போன்" },
+                sentence: 'கடற்கரையில் <span class="hl-a">அலவனை</span> (ஆண்நண்டை) பிடித்தவன், உப்பு எடுக்கும் <span class="hl-b">அளவனையும்</span> (அளப்பவனையும்) கண்டான்.'
+            },
+            {
+                a: { word: "அழி", meaning: "அழித்துவிடு" },
+                b: { word: "அலி", meaning: "பேடி, காகம், விருச்சிகராசி" },
+                c: { word: "அளி", meaning: "கருணை, கள், வண்டு" },
+                sentence: 'பகைவரை <span class="hl-a">அழிக்கப்</span> புறப்பட்ட அரசனுக்கு, <span class="hl-b">அலி</span> (பேடி) ஒருவன் <span class="hl-c">அளி</span> (கருணை) காட்டுமாறு வேண்டினான்.'
+            },
+            {
+                a: { word: "அல்லல்", meaning: "துன்பம்" },
+                b: { word: "அள்ளல்", meaning: "வாரி எடுத்தல்" },
+                sentence: 'வாழ்வின் <span class="hl-a">அல்லலை</span> (துன்பத்தை) மறக்க, அவன் மணலை <span class="hl-b">அள்ளி</span> விளையாடினான்.'
+            },
+            {
+                a: { word: "அழை", meaning: "கூப்பிடு" },
+                b: { word: "அலை", meaning: "கடல், நீரலை, அலைதல்" },
+                c: { word: "அளை", meaning: "தயிர், நண்டு, புற்று" },
+                sentence: 'கடல் <span class="hl-b">அலையைப்</span> பார்த்துக்கொண்டிருந்த அவனை, தோழன் <span class="hl-a">அழைத்தான்</span> (கூப்பிட்டான்); நண்டு <span class="hl-c">அளையினுள்</span> (புற்றினுள்) மறைந்தது.'
+            },
+            {
+                a: { word: "அவல்", meaning: "பள்ளம், உணவுப் பொருள்" },
+                b: { word: "அவள்", meaning: "பெண் (சேய்மைச் சுட்டு)" },
+                sentence: '<span class="hl-a">அவலில்</span> (பள்ளத்தில்) விழுந்த <span class="hl-b">அவளை</span> (அப்பெண்ணை) அனைவரும் தேடி வந்தனர்.'
+            },
+            {
+                a: { word: "அல்", meaning: "இரவு" },
+                b: { word: "அள்", meaning: "அள்ளி எடு, நெருக்கம்" },
+                sentence: '<span class="hl-a">அல்</span> (இரவு) நேரத்தில், அவள் அரிசியை <span class="hl-b">அள்ளி</span> எடுத்தாள்.'
+            },
+            {
+                a: { word: "உலவு", meaning: "நட" },
+                b: { word: "உளவு", meaning: "ஒற்று" },
+                c: { word: "உழவு", meaning: "கலப்பையால் உழுதல்" },
+                sentence: 'தெருவில் <span class="hl-a">உலவிய</span> (நடந்த) அவன், எதிரி நாட்டின் <span class="hl-b">உளவை</span> (ஒற்றை) கண்டறிந்தான்; பின் வயலுக்குச் சென்று <span class="hl-c">உழவு</span> செய்தான்.'
+            },
+            {
+                a: { word: "உழி", meaning: "இடம், பொழுது" },
+                b: { word: "உளி", meaning: "தச்சுக் கருவிகளுள் ஒன்று" },
+                sentence: 'பழைய <span class="hl-a">உழியில்</span> (இடத்தில்) இருந்த தச்சன், <span class="hl-b">உளியால்</span> (தச்சுக் கருவியால்) மரத்தைச் செதுக்கினான்.'
+            },
+            {
+                a: { word: "உலு", meaning: "தானியப் பதர்" },
+                b: { word: "உழு", meaning: "நிலத்தை உழு" },
+                c: { word: "உளு", meaning: "உளுத்துப் போதல்" },
+                sentence: 'தானியப் <span class="hl-a">பதரை</span> (உலு) தூற்றி எடுத்தவன், நிலத்தை <span class="hl-b">உழுது</span>, விதை <span class="hl-c">உளுத்துப்</span> போகாமல் பாதுகாத்தான்.'
+            },
+            {
+                a: { word: "உலை", meaning: "கொல்லன் உலை, நீரலை" },
+                b: { word: "உழை", meaning: "பாடுபடு, பக்கம், கலைமான்" },
+                c: { word: "உளை", meaning: "பிடரி மயிர், சேறு, தலை" },
+                sentence: 'கொல்லன் <span class="hl-a">உலையில்</span> இரும்பு காய்ச்சிக்கொண்டிருந்தான்; காட்டு வழியில் <span class="hl-b">உழைத்த</span> வேடன், மானின் <span class="hl-c">உளையை</span> (பிடரி மயிரை) கண்டான்.'
+            },
+            {
+                a: { word: "உழுவை", meaning: "புலி" },
+                b: { word: "உளுவை", meaning: "மீன்வகை" },
+                sentence: 'காட்டில் <span class="hl-a">உழுவை</span> (புலி) ஒன்று, ஆற்றில் நீந்திய <span class="hl-b">உளுவை</span> (மீன்வகை) மீனைப் பிடித்தது.'
+            },
+            {
+                a: { word: "எல்", meaning: "கல், மாலை, சூரியன்" },
+                b: { word: "எள்", meaning: "எண்ணெய் வித்து, நிந்தை" },
+                sentence: '<span class="hl-a">எல்</span> (சூரியன்) உதயமான பொழுது, விவசாயி <span class="hl-b">எள்</span> (எண்ணெய் வித்து) விதைத்தான்.'
+            },
+            {
+                a: { word: "எலு", meaning: "கரடி" },
+                b: { word: "எழு", meaning: "எழுந்திரு, தூண்" },
+                sentence: 'காட்டில் <span class="hl-a">எலு</span> (கரடி) ஒன்றைக் கண்டதும், அவன் உடனே <span class="hl-b">எழுந்தான்</span>.'
+            },
+            {
+                a: { word: "ஒலி", meaning: "சப்தம், நாதம், காற்று" },
+                b: { word: "ஒழி", meaning: "அழி, தவிர், கொல், துற" },
+                c: { word: "ஒளி", meaning: "வெளிச்சம், மறை(த்து வை)" },
+                sentence: 'மணியின் <span class="hl-a">ஒலியைக்</span> (சப்தத்தைக்) கேட்டு, இருள் <span class="hl-b">ஒழிந்து</span>, <span class="hl-c">ஒளி</span> (வெளிச்சம்) பரவியது.'
+            },
+            {
+                a: { word: "ஒல்", meaning: "ஒலிக்குறிப்பு" },
+                b: { word: "ஒள்", meaning: "அழகு, உண்மை, அறிவு, ஒளி" },
+                sentence: '<span class="hl-a">ஒல்</span> என ஒலி எழுப்பிய அவள் முகத்தில், <span class="hl-b">ஒள்</span> (அழகு) தெரிந்தது.'
+            },
+            {
+                a: { word: "கலகம்", meaning: "போர், அமளி, இரைச்சல்" },
+                b: { word: "கழகம்", meaning: "சங்கம், கூட்டமைப்பு" },
+                sentence: 'ஊரில் <span class="hl-a">கலகம்</span> (இரைச்சல்) ஏற்பட்டதால், தமிழ்க் <span class="hl-b">கழகத்தின்</span> (சங்கத்தின்) கூட்டம் ஒத்திவைக்கப்பட்டது.'
+            },
+            {
+                a: { word: "கழங்கம்", meaning: "கழங்கு, விளையாட்டுக் கருவி" },
+                b: { word: "களங்கம்", meaning: "குற்றம், அழுக்கு" },
+                sentence: 'குழந்தைகள் <span class="hl-a">கழங்கத்துடன்</span> (விளையாட்டுக் கருவியுடன்) விளையாடினர்; அவர்கள் மனதில் எந்தக் <span class="hl-b">களங்கமும்</span> (குற்றமும்) இல்லை.'
+            },
+            {
+                a: { word: "கலி", meaning: "கலியுகம், பாவகை, சனி" },
+                b: { word: "கழி", meaning: "கோல், மிகுதி, உப்பளம்" },
+                c: { word: "களி", meaning: "மகிழ்வு, இன்பம்" },
+                sentence: '<span class="hl-a">கலியுகத்தில்</span> பிறந்தவனாயினும், <span class="hl-b">கழிக்கரையில்</span> (உப்பளக் கரையில்) அமர்ந்து அவன் அடைந்த <span class="hl-c">களி</span> (மகிழ்வு) அளப்பரியது.'
+            },
+            {
+                a: { word: "கலை", meaning: "ஆண்மான், சந்திரன், கல்வி" },
+                b: { word: "கழை", meaning: "மூங்கில், கரும்பு, புனர்பூசம்" },
+                c: { word: "களை", meaning: "அழகு, புல் பூண்டு, அயர்வு" },
+                sentence: '<span class="hl-a">கலையில்</span> (கல்வியில்) சிறந்தவன், <span class="hl-b">கழையால்</span> (மூங்கிலால்) வேலி அமைத்து, வயலில் <span class="hl-c">களை</span> (புல்பூண்டு) பறித்தான்.'
+            },
+            {
+                a: { word: "கல்", meaning: "மலை, பாறை, சிறுகல்" },
+                b: { word: "கள்", meaning: "மது, தேன்" },
+                sentence: 'மலைமேல் இருந்த <span class="hl-a">கல்</span> (பாறை) அருகே, அவன் <span class="hl-b">கள்</span> (தேன்) சேகரித்தான்.'
+            },
+            {
+                a: { word: "கலம்", meaning: "கப்பல், பாத்திரம்" },
+                b: { word: "களம்", meaning: "இடம், போர்க்களம், இருள்" },
+                sentence: '<span class="hl-a">கலத்தில்</span> (கப்பலில்) பயணித்த வணிகன், போர்க்<span class="hl-b">களத்தை</span> அடைந்தான்.'
+            },
+            {
+                a: { word: "காலி", meaning: "ஒன்றுமில்லாதது, வெற்றிடம்" },
+                b: { word: "காளி", meaning: "துர்க்கை, மாயை" },
+                c: { word: "காழி", meaning: "சீர்காழி (ஊர்)" },
+                sentence: '<span class="hl-a">காலியான</span> (வெற்றிடமான) அந்த இடத்தில் <span class="hl-b">காளி</span> (துர்க்கை) கோவில் ஒன்று இருந்தது; அது <span class="hl-c">காழி</span> (சீர்காழி ஊர்) அருகில் அமைந்திருந்தது.'
+            },
+            {
+                a: { word: "காலை", meaning: "பொழுது, விடியற்பொழுது" },
+                b: { word: "காளை", meaning: "காளைமாடு, இளைஞன்" },
+                sentence: '<span class="hl-a">காலை</span> (விடியற்பொழுது) நேரத்தில், <span class="hl-b">காளை</span> (இளைஞன்) ஒருவன் காளைமாட்டைப் பழக்கினான்.'
+            },
+            {
+                a: { word: "காலம்", meaning: "பொழுது, நேரம்" },
+                b: { word: "காளம்", meaning: "எட்டிமரம், சூலம்" },
+                sentence: 'பழங்<span class="hl-a">காலத்தில்</span> போர்முரசுடன், <span class="hl-b">காளம்</span> (சூலம்) படைக் கருவியாக பயன்பட்டது.'
+            },
+            {
+                a: { word: "கிலி", meaning: "அச்சம், பயம்" },
+                b: { word: "கிழி", meaning: "கிழித்துவிடு, முடிப்பு (பொன்)" },
+                c: { word: "கிளி", meaning: "பறவை, வெட்டுக்கிளி" },
+                sentence: '<span class="hl-a">கிலியுடன்</span> (அச்சத்துடன்) நின்றவன், பணப்பையைக் <span class="hl-b">கிழித்து</span>, உள்ளிருந்த பொற்கிழியை எடுத்தான்; அருகில் <span class="hl-c">கிளி</span> (பறவை) ஒன்று பறந்தது.'
+            },
+            {
+                a: { word: "கிழவி", meaning: "முதியவள், மூதாட்டி" },
+                b: { word: "கிளவி", meaning: "சொல், மொழி" },
+                sentence: '<span class="hl-a">கிழவி</span> (முதியவள்) சொன்ன ஒவ்வொரு <span class="hl-b">கிளவியும்</span> (சொல்லும்) அறிவுரையாக இருந்தது.'
+            },
+            {
+                a: { word: "குலி", meaning: "மனைவி" },
+                b: { word: "குழி", meaning: "பள்ளம், பாத்தி, பன்னீரடிச் சதுரம், வயிறு" },
+                sentence: '<span class="hl-a">குலி</span> (மனைவி), வீட்டு முற்றத்தில் ஒரு <span class="hl-b">குழி</span> (பள்ளம்) தோண்டினாள்.'
+            },
+        ];
 
-            return `
-            <div class="pair-block">
-                <span class="pair-number">${index + 1}</span>
-                <div class="pair-row">
-                    <div class="pair-word word-a">
-                        <span class="word">${p.a.word}</span> <span class="meaning">=&gt; ${p.a.meaning}</span>
+        function renderPairs(list, containerId) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = list.map(p => {
+                const sentences = Array.isArray(p.sentence) ? p.sentence : [p.sentence];
+                const label = sentences.length > 1 ? 'எடுத்துக்காட்டு வாக்கியங்கள்:' : 'எடுத்துக்காட்டு வாக்கியம்:';
+                const sentenceLines = sentences.map((s, i) =>
+                    `<span class="sentence-line">${sentences.length > 1 ? `${i + 1}. ` : ''}${s}</span>`
+                ).join('');
+
+                const words = [p.a, p.b, p.c].filter(Boolean);
+                const cardLetters = ['a', 'b', 'c'];
+                const cards = words.map((w, i) => `
+                    <div class="pair-word word-${cardLetters[i]}">
+                        <span class="word">${w.word}</span> <span class="meaning">=&gt; ${w.meaning}</span>
+                    </div>`).join('');
+
+                return `
+                <div class="pair-block">
+                    <div class="pair-row">${cards}
                     </div>
-                    <div class="pair-word word-b">
-                        <span class="word">${p.b.word}</span> <span class="meaning">=&gt; ${p.b.meaning}</span>
+                    <div class="example-sentence">
+                        <span class="label">${label}</span>
+                        ${sentenceLines}
                     </div>
                 </div>
-                <div class="example-sentence">
-                    <span class="label">${label}</span>
-                    ${sentenceLines}
-                </div>
-            </div>
-        `;
-        }).join('');
+            `;
+            }).join('');
+        }
 
-        document.getElementById('pair-count').textContent = pairs.length;
+        renderPairs(pairs, 'pairs-container');
+        renderPairs(pairsLzhL, 'pairs-container-2');
     </script>
 </body>
 </html>
