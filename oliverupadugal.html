@@ -100,6 +100,16 @@
             page-break-inside: avoid;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
+        .pair-number {
+            display: inline-block;
+            background-color: #2c3e50;
+            color: #ffffff;
+            font-size: 9.5pt;
+            font-weight: bold;
+            padding: 2px 10px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
         .pair-row {
             display: flex;
             flex-wrap: wrap;
@@ -185,12 +195,13 @@
 
     <div class="intro-note">
         <span class="label">குறிப்பு:</span> கீழே கொடுக்கப்பட்டுள்ள சொற்கள் கேட்பதற்கு ஒரே மாதிரி இருந்தாலும், ண்/ன் போன்ற எழுத்து வேறுபாட்டால் பொருள் முற்றிலும் மாறுபடும். இவ்வேறுபாட்டை கவனத்தில் கொண்டு பயிற்சி செய்யவும்.
+        <br><span class="label" id="total-count"></span>
     </div>
 
-    <h2 class="section-heading">ண் / ன் ஒலி வேறுபாடுகள்</h2>
+    <h2 class="section-heading" id="section-1-heading">ண் / ன் ஒலி வேறுபாடுகள்</h2>
     <div id="pairs-container"></div>
 
-    <h2 class="section-heading">ல் / ழ் / ள் ஒலி வேறுபாடுகள்</h2>
+    <h2 class="section-heading" id="section-2-heading">ல் / ழ் / ள் ஒலி வேறுபாடுகள்</h2>
     <div id="pairs-container-2"></div>
 
     <script>
@@ -870,7 +881,7 @@
 
         function renderPairs(list, containerId) {
             const container = document.getElementById(containerId);
-            container.innerHTML = list.map(p => {
+            container.innerHTML = list.map((p, index) => {
                 const sentences = Array.isArray(p.sentence) ? p.sentence : [p.sentence];
                 const label = sentences.length > 1 ? 'எடுத்துக்காட்டு வாக்கியங்கள்:' : 'எடுத்துக்காட்டு வாக்கியம்:';
                 const sentenceLines = sentences.map((s, i) =>
@@ -886,6 +897,7 @@
 
                 return `
                 <div class="pair-block">
+                    <span class="pair-number">#${index + 1}</span>
                     <div class="pair-row">${cards}
                     </div>
                     <div class="example-sentence">
@@ -896,6 +908,10 @@
             `;
             }).join('');
         }
+
+        document.getElementById('section-1-heading').textContent = `ண் / ன் ஒலி வேறுபாடுகள் (${pairs.length})`;
+        document.getElementById('section-2-heading').textContent = `ல் / ழ் / ள் ஒலி வேறுபாடுகள் (${pairsLzhL.length})`;
+        document.getElementById('total-count').textContent = `மொத்தம்: ${pairs.length + pairsLzhL.length} சொல் ஜோடிகள்`;
 
         renderPairs(pairs, 'pairs-container');
         renderPairs(pairsLzhL, 'pairs-container-2');
