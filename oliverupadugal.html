@@ -87,9 +87,16 @@
             border-bottom: 2px solid #e6b0aa;
             page-break-after: avoid;
         }
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background-color: #faf8f5;
+        }
         .show-all-wrap {
             display: flex;
             justify-content: center;
+            padding: 10px 0 0 0;
             margin: 0 0 18px 0;
         }
         .show-all-btn {
@@ -125,11 +132,8 @@
             justify-content: center;
             flex-wrap: wrap;
             margin: 0 0 25px 0;
-            position: sticky;
-            top: 0;
             background-color: #faf8f5;
             padding: 12px 0;
-            z-index: 10;
             border-bottom: 2px solid #e6b0aa;
         }
         .tab-btn {
@@ -350,17 +354,19 @@
         <br><span class="label" id="total-count"></span>
     </div>
 
-    <div class="show-all-wrap">
-        <button class="show-all-btn" id="show-all-btn" onclick="toggleAllPairs(this)">
-            <span id="show-all-icon"></span>
-            <span id="show-all-label"></span>
-        </button>
-    </div>
+    <div class="sticky-header">
+        <div class="show-all-wrap">
+            <button class="show-all-btn" id="show-all-btn" onclick="toggleAllPairs(this)">
+                <span id="show-all-icon"></span>
+                <span id="show-all-label"></span>
+            </button>
+        </div>
 
-    <div class="tabs">
-        <button class="tab-btn active" onclick="showTopic('topic-1', this)" id="tab-1"></button>
-        <button class="tab-btn" onclick="showTopic('topic-2', this)" id="tab-2"></button>
-        <button class="tab-btn" onclick="showTopic('topic-3', this)" id="tab-3"></button>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showTopic('topic-1', this)" id="tab-1"></button>
+            <button class="tab-btn" onclick="showTopic('topic-2', this)" id="tab-2"></button>
+            <button class="tab-btn" onclick="showTopic('topic-3', this)" id="tab-3"></button>
+        </div>
     </div>
 
     <div class="topic-section active" id="topic-1">
@@ -439,6 +445,11 @@
                 sentence: '<span class="hl-a">அவண்</span> (அவ்வாறு) நடந்துகொண்ட <span class="hl-b">அவன்</span> (ஆண்மகன்) அனைவராலும் விமர்சிக்கப்பட்டான்.'
             },
             {
+                a: { word: "இவண்", meaning: "இவ்வாறு" },
+                b: { word: "இவன்", meaning: "ஆடவன் (அண்மைச் சுட்டு)" },
+                sentence: '<span class="hl-a">இவண்</span> (இவ்வாறு) பேசிய <span class="hl-b">இவன்</span> (இந்த ஆடவன்) அனைவரையும் வியக்க வைத்தான்.'
+            },
+            {
                 a: { word: "ஆணகம்", meaning: "சுரை" },
                 b: { word: "ஆளகம்", meaning: "துந்துபி" },
                 sentence: 'திருவிழாவில் <span class="hl-a">ஆணகம்</span> (சுரை) இசைக்கப்பட்டதைத் தொடர்ந்து <span class="hl-b">ஆளகம்</span> (துந்துபி) முழங்கியது.'
@@ -477,11 +488,6 @@
                 a: { word: "இணைத்து", meaning: "சேர்த்து" },
                 b: { word: "இனைத்து", meaning: "இத்தன்மையது" },
                 sentence: 'இரு கயிறுகளை <span class="hl-a">இணைத்துக்</span> (சேர்த்துக்) கட்டியதால், <span class="hl-b">இனைத்து</span> (இத்தன்மையது) ஒரு வலிமையான கயிறு உருவானது.'
-            },
-            {
-                a: { word: "இவண்", meaning: "இவ்வாறு" },
-                b: { word: "இவன்", meaning: "ஆடவன் (அண்மைச் சுட்டு)" },
-                sentence: '<span class="hl-a">இவண்</span> (இவ்வாறு) பேசிய <span class="hl-b">இவன்</span> (இந்த ஆடவன்) அனைவரையும் வியக்க வைத்தான்.'
             },
             {
                 a: { word: "ஈணவள்", meaning: "ஈன்றவள்" },
