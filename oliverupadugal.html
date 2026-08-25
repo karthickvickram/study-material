@@ -87,6 +87,38 @@
             border-bottom: 2px solid #e6b0aa;
             page-break-after: avoid;
         }
+        .show-all-wrap {
+            display: flex;
+            justify-content: center;
+            margin: 0 0 18px 0;
+        }
+        .show-all-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Arial', sans-serif;
+            font-size: 10.5pt;
+            font-weight: bold;
+            padding: 8px 18px;
+            border: 2px solid #16a085;
+            border-radius: 20px;
+            background-color: #ffffff;
+            color: #16a085;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .show-all-btn:hover {
+            background-color: #e8f6f3;
+        }
+        .show-all-btn svg {
+            width: 15px;
+            height: 15px;
+        }
+        @media print {
+            .show-all-wrap {
+                display: none;
+            }
+        }
         .tabs {
             display: flex;
             gap: 8px;
@@ -316,6 +348,13 @@
     <div class="intro-note">
         <span class="label">குறிப்பு:</span> கீழே கொடுக்கப்பட்டுள்ள சொற்கள் கேட்பதற்கு ஒரே மாதிரி இருந்தாலும், ண்/ன் போன்ற எழுத்து வேறுபாட்டால் பொருள் முற்றிலும் மாறுபடும். இவ்வேறுபாட்டை கவனத்தில் கொண்டு பயிற்சி செய்யவும்.
         <br><span class="label" id="total-count"></span>
+    </div>
+
+    <div class="show-all-wrap">
+        <button class="show-all-btn" id="show-all-btn" onclick="toggleAllPairs(this)">
+            <span id="show-all-icon"></span>
+            <span id="show-all-label"></span>
+        </button>
     </div>
 
     <div class="tabs">
@@ -2308,10 +2347,51 @@
         const EYE_OPEN_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
         const EYE_OFF_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 20c-7 0-11-8-11-8a18.5 18.5 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>';
 
+        let currentOpenBlockId = null;
+        let allShown = false;
+
         function toggleAnswer(blockId, btn) {
             const block = document.getElementById(blockId);
-            const hidden = block.classList.toggle('hidden');
-            btn.innerHTML = hidden ? EYE_OFF_SVG : EYE_OPEN_SVG;
+            const isHidden = block.classList.contains('hidden');
+
+            if (isHidden) {
+                if (currentOpenBlockId && currentOpenBlockId !== blockId) {
+                    const prevBlock = document.getElementById(currentOpenBlockId);
+                    if (prevBlock) {
+                        prevBlock.classList.add('hidden');
+                        const prevBtn = prevBlock.querySelector('.toggle-btn');
+                        if (prevBtn) prevBtn.innerHTML = EYE_OFF_SVG;
+                    }
+                }
+                block.classList.remove('hidden');
+                btn.innerHTML = EYE_OPEN_SVG;
+                currentOpenBlockId = blockId;
+            } else {
+                block.classList.add('hidden');
+                btn.innerHTML = EYE_OFF_SVG;
+                if (currentOpenBlockId === blockId) currentOpenBlockId = null;
+            }
+        }
+
+        function updateShowAllButton() {
+            document.getElementById('show-all-icon').innerHTML = allShown ? EYE_OFF_SVG : EYE_OPEN_SVG;
+            document.getElementById('show-all-label').textContent = allShown ? 'அனைத்தையும் மறை' : 'அனைத்தையும் காட்டு';
+        }
+
+        function toggleAllPairs() {
+            allShown = !allShown;
+            currentOpenBlockId = null;
+            document.querySelectorAll('.pair-block').forEach(function (block) {
+                const toggleBtn = block.querySelector('.toggle-btn');
+                if (allShown) {
+                    block.classList.remove('hidden');
+                    if (toggleBtn) toggleBtn.innerHTML = EYE_OPEN_SVG;
+                } else {
+                    block.classList.add('hidden');
+                    if (toggleBtn) toggleBtn.innerHTML = EYE_OFF_SVG;
+                }
+            });
+            updateShowAllButton();
         }
 
         function renderPairs(list, containerId) {
@@ -2332,10 +2412,10 @@
 
                 const blockId = `${containerId}-block-${index}`;
                 return `
-                <div class="pair-block" id="${blockId}">
+                <div class="pair-block hidden" id="${blockId}">
                     <div class="pair-block-head">
                         <span class="pair-number">#${index + 1}</span>
-                        <button class="toggle-btn" onclick="toggleAnswer('${blockId}', this)" title="பொருளை மறை / காட்டு" aria-label="பொருளை மறை / காட்டு">${EYE_OPEN_SVG}</button>
+                        <button class="toggle-btn" onclick="toggleAnswer('${blockId}', this)" title="பொருளை மறை / காட்டு" aria-label="பொருளை மறை / காட்டு">${EYE_OFF_SVG}</button>
                     </div>
                     <div class="pair-row">${cards}
                     </div>
@@ -2360,6 +2440,7 @@
         renderPairs(pairs, 'pairs-container');
         renderPairs(pairsLzhL, 'pairs-container-2');
         renderPairs(pairsRR, 'pairs-container-3');
+        updateShowAllButton();
     </script>
 </body>
 </html>
