@@ -172,6 +172,12 @@
             page-break-inside: avoid;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
+        .pair-block-head {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
         .pair-number {
             display: inline-block;
             background-color: #2c3e50;
@@ -180,7 +186,49 @@
             font-weight: bold;
             padding: 2px 10px;
             border-radius: 12px;
-            margin-bottom: 10px;
+        }
+        .toggle-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px;
+            height: 26px;
+            padding: 0;
+            border: 1px solid #bdc3c7;
+            border-radius: 50%;
+            background-color: #ffffff;
+            color: #7f8c8d;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .toggle-btn:hover {
+            background-color: #eaf2f8;
+            border-color: #2980b9;
+            color: #2980b9;
+        }
+        .toggle-btn svg {
+            width: 15px;
+            height: 15px;
+        }
+        @media print {
+            .toggle-btn {
+                display: none;
+            }
+        }
+        .pair-block.hidden .meaning,
+        .pair-block.hidden .hl-a,
+        .pair-block.hidden .hl-b,
+        .pair-block.hidden .hl-c {
+            color: transparent;
+            background-color: #d5dbdb;
+            border-radius: 3px;
+            user-select: none;
+        }
+        .pair-block.hidden .meaning::selection,
+        .pair-block.hidden .hl-a::selection,
+        .pair-block.hidden .hl-b::selection,
+        .pair-block.hidden .hl-c::selection {
+            background-color: transparent;
         }
         .pair-row {
             display: flex;
@@ -2257,6 +2305,15 @@
             },
         ];
 
+        const EYE_OPEN_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
+        const EYE_OFF_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 20c-7 0-11-8-11-8a18.5 18.5 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>';
+
+        function toggleAnswer(blockId, btn) {
+            const block = document.getElementById(blockId);
+            const hidden = block.classList.toggle('hidden');
+            btn.innerHTML = hidden ? EYE_OFF_SVG : EYE_OPEN_SVG;
+        }
+
         function renderPairs(list, containerId) {
             const container = document.getElementById(containerId);
             container.innerHTML = list.map((p, index) => {
@@ -2273,9 +2330,13 @@
                         <span class="word">${w.word}</span> <span class="meaning">=&gt; ${w.meaning}</span>
                     </div>`).join('');
 
+                const blockId = `${containerId}-block-${index}`;
                 return `
-                <div class="pair-block">
-                    <span class="pair-number">#${index + 1}</span>
+                <div class="pair-block" id="${blockId}">
+                    <div class="pair-block-head">
+                        <span class="pair-number">#${index + 1}</span>
+                        <button class="toggle-btn" onclick="toggleAnswer('${blockId}', this)" title="பொருளை மறை / காட்டு" aria-label="பொருளை மறை / காட்டு">${EYE_OPEN_SVG}</button>
+                    </div>
                     <div class="pair-row">${cards}
                     </div>
                     <div class="example-sentence">
